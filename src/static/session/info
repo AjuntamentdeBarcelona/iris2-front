@@ -1,0 +1,23 @@
+{
+  "user": "ADMIN",
+  "version": "1",
+  "acces":["IRIS2#ADMIN"],
+  "fun": "",
+  "grp": [],
+  "grups": "IRIS",
+  "sub": "IRIS2",
+  "dept": "",
+  "dptcuser": "TEST",
+  "distr": "",
+  "div": "",
+  "optun": "",
+  "cat": "",
+  "dni": "XXXXXXY",
+  "email": "test@test.net",
+  "tipusUsuari": "T4",
+  "dependencia": "IMI",
+  "commandament": "0",
+  "cooper": "0",
+  "iss": "IRIS",
+  "app": "Iris2App"
+}

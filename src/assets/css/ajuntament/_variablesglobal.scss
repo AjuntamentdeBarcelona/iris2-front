@@ -1,0 +1,14 @@
+
+@import 'variables.scss';
+@import 'mixinsOverwrite/breakpoints.scss';
+
+.bgPrimaryGradient {
+  background: linear-gradient(to right, $primary 0, $secondary 100%);
+}
+.bgMenuGradient{
+  background: linear-gradient(to right, $secondary 0%, $primary 15%, $secondary 100%);
+}
+
+.bg-gradient-dark {
+  background: linear-gradient(to bottom, $light 0, $gray 100%);
+}

@@ -1,0 +1,43 @@
+########################################
+#     Deployment test instructions     #
+########################################
+
+image: node:14.18.1-slim
+
+before_script:
+  - yarn install
+
+cache:
+  paths:
+    - node_modules/
+
+pages:
+  stage: deploy
+  variables:
+    API_BASE_URL: ""
+    CLIENT_ID_HEADER: "change_me"
+    VERSION: "201903191911"
+    ENV: ""
+    ISSUE_COLLECTOR_URL: ""
+    MEDIA_URL: ""
+    DEVELOP: "true"
+    MAINTENANCE: ""
+    LOGOUT_URL: "https://www.barcelona.cat"
+    SESSION_INFO_URL: ""
+    FORCE_SESSION_POLLING: "false"
+    PUBLIC_PATH: ''
+    AUTH_METHOD: 'oauth'
+    BASE_ROUTE: '/iris-2-front/'
+    CITY_CENTER_LAT: '43.366623'
+    CITY_CENTER_LON: '-8.410378'
+    MAIN_LANG: 'gl'
+  script:
+    - apt-get update && apt-get install gettext-base
+    - envsubst < ./config.template.json > ./src/static/config.json
+    - yarn build
+    - mv dist/ public/
+  artifacts:
+    paths:
+      - public
+  only:
+    - dev # This project's pre branch is called dev

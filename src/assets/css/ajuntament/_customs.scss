@@ -1,0 +1,70 @@
+// UNCOMMENT ME FOR CUSTOMIZING COLOR PALETTE
+/*
+$white:    #fff !default;
+$gray-100: #ededed !default; // IRIS
+$gray-200: #f8f9fa !default; // IRIS
+$gray-300: #dee2e6 !default; //
+$gray-400: #d4d4d4 !default; // IRIS
+$gray-500: #a5a5a5 !default; // IRIS
+$gray-600: #666666 !default; // IRIS
+$gray-700: #8c8c8c !default; // IRIS
+$gray-800: #343a40 !default;
+$gray-900: #212529 !default;
+$black:    #000 !default;
+
+
+$blue:    #007bff !default;
+$indigo:  #6610f2 !default;
+$purple:  #6f42c1 !default;
+$pink:    #e83e8c !default;
+$red:     #dc3545 !default;
+$orange:  #fd7e14 !default;
+$yellow:  #ffc107 !default;
+$green:   #28a745 !default;
+$teal:    #20c997 !default;
+$cyan:    #17a2b8 !default;
+
+// IRIS COLORS
+$irisblack: rgb( 70, 70, 70); //black
+$orange: rgb(230, 159, 0,); //orange
+$skyblue: rgb( 86, 180, 233); //skyblue
+$green: rgb( 0, 158, 115); //green
+$yellow: rgb(240, 228, 66); //yellow
+$blue: rgb( 0, 114, 178); //blue
+$vermillion: rgb(213, 94, 0); //vermillion
+$purple: rgb(204, 121, 167); //purple
+
+$bgtable: #ebf4fa; //temporal IRIS Damià A. review
+
+// $primary: #1c7877 !default; // IRIS
+$primary: #6a1b77 !default; // IRIS
+$secondary: #4d1c77 !default; // IRIS
+$success: $green !default;
+$info: $cyan !default;
+$warning: $yellow !default;
+$error: #ee8a97 !default;
+$danger: $red !default;
+$light: $gray-100 !default; // #ededed
+$dark: $gray-600 !default; // #666666
+$gray: $gray-400 !default; //temporal #d4d4d4
+
+// Brand colors
+$twitter-blue: #1DA1F2;
+*/
+
+
+
+// CORUNA COLORS
+$corunablue: #009fe3;
+$corunadarkblue: darken($corunablue, 20%);
+
+$primary: $corunablue !default;
+$secondary: $corunadarkblue !default;
+
+.logo-name {
+  padding: 9px 17px 9px 20px !important;
+}
+
+.logo .maintitle {
+  min-width: 230px;
+}

@@ -1,0 +1,137 @@
+// THEME BOOTSTRAP
+@import 'variables.scss';
+@import 'node_modules/bootstrap/scss/bootstrap.scss';
+@import 'mixinsOverwrite/mixins.scss';
+
+
+@import 'forms.scss';
+
+// ANIMATIONS - TRANSITIONS
+$animationDuration: 0.5s; // specify animation duration. Default value: 1s
+@import "animate/vue2-animate.scss";
+@import 'pikaday/css/pikaday.css';
+@import "animate/custom-transitions.scss";
+
+@import 'global.scss';
+
+body {
+    overflow: auto !important;
+    font-size: 14px;
+}
+
+/* Fixes Bootstrap vue upgrade */
+.tab-pane:focus{
+    outline: none;
+}
+
+.formset-field {
+  div [id$="DELETE"] {
+    opacity:0; position:absolute; left:9999px;
+  }
+}
+
+// overwrite to bootstrap standard
+body {
+  .sweet-modal-overlay {
+    z-index: $zindex-modal;
+  }
+  // overwrite to quillWrapper standard
+  .ql-snow .ql-toolbar button svg,
+  .quillWrapper .ql-snow.ql-toolbar button svg {
+    width: 12px;
+    height: 12px;
+  }
+  .quillWrapper .ql-snow.ql-toolbar .ql-formats {
+    margin-bottom: 4px;
+  }
+  .ql-editor p,
+  .ql-editor {
+    font-size: 1rem;
+  }
+  .form-group.disabled {
+    .ql-toolbar{
+      display: none !important;
+    }
+    .ql-container.ql-snow{
+      border:none;
+    }
+    .ql-editor{
+      opacity: 0.8;
+      min-height: initial;
+      border: 2px solid $gray-400;
+      background-color: $gray-100;
+    }
+  }
+}
+
+@each $color, $value in $record_state {
+  .badge-#{$color} {
+    @include badge-variant($value);
+  }
+}
+
+// TODO Damia: Put where it belongs
+.main-content .btn.dropdown-toggle {
+  margin-left: 0;
+  padding: 0.25em;
+  border-left: 1px solid $gray-800;
+}
+.border-twitter {
+  border-color: $twitter-blue !important;
+}
+
+
+.multifiles-icon {
+  position: relative;
+  width: 1.5rem;
+  //Number of files has to be the same number(or bigger) than the v-for ofs the icons
+  $numberOfFiles: 4;
+  @for $i from 1 through $numberOfFiles {
+    .svg-inline--fa:nth-child(#{$i}) {
+      opacity: #{1 / $i};
+      position: absolute;
+      left: 0;
+      top: 0;
+      transform: translate(#{($i - 1) * 15%}, -#{($i - 1) * 15%});
+      z-index: #{$numberOfFiles + 1 - $i};
+    }
+  }
+}
+
+
+
+// BUTTONS MODIFICATION
+.btn-sm{
+  font-size: 0.75rem;
+}
+
+//overlaping buttons
+.cardi.traceability{
+  margin-bottom: 10rem;
+  @media (min-width: 768px) {
+    margin-bottom: 11rem;
+   }
+   @media (min-width: 992px) {
+    margin-bottom: 8rem;
+   }
+}
+
+.sweet-modal.is-mobile-fullscreen:not(.is-alert) {
+  @media (max-height: 1000px) {
+    height: 100% !important;
+    .sweet-content {
+      padding-top: 30px;
+    }
+  }
+  @media (max-width: 1200px) {
+    min-width: 70% !important;
+  }
+  @media (max-width: 800px) {
+    width: 100% !important;
+    height: 100% !important;
+  }
+}
+
+.notification.vue-notification {
+  cursor: pointer;
+}

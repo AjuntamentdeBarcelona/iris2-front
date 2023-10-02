@@ -1,0 +1,420 @@
+$formHeight: 2.5rem;
+.form-group .ui-state-default{
+  height: $formHeight;
+  top: 0 !important;
+}
+
+.vue-form-generator {
+  fieldset {
+    margin-bottom: 1.5rem;
+    margin-bottom: 0;
+  }
+
+  legend {
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    font-size: 1rem;
+  }
+
+  .form-group.error .field-wrap .dropdown-toggle input {
+    border: none;
+  }
+
+  .form-group.error .dropdown-toggle {
+    border-color: $error;
+  }
+
+  .form-group {
+
+    .autocomplete-enter-active,
+    .autocomplete-leave-active {
+      transition: opacity 0.1s cubic-bezier(0.1, 0.1, 0.1, 0.1);
+    }
+
+    .autocomplete-enter,
+    .autocomplete-leave-to {
+      opacity: 0;
+    }
+  }
+}
+
+//required exception - more than 1 item with *
+  .field-wrap{
+    .required{
+      label span:after{
+        content: ' *'
+      }
+    }
+  }
+
+// FORM GROUP - all form elements wrapper
+.form-group {
+  font-size: 1rem;
+  margin-bottom:0;
+  position:relative;
+  label{
+    min-height: 2rem;
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    padding-bottom: 0;
+  }
+
+  input {
+    cursor: pointer;
+  }
+
+  &.required {
+    label span:after{
+      content:'*';
+    }
+    .field-wrap {
+      position: relative;
+
+      // &:after {
+      //   position: absolute;
+      //   bottom: .3rem;
+      //   font-size: 0.8em;
+      //   right: 1rem;
+      //   transform: translateY(-50%);
+      //   color: $gray-600;
+      //   font-family: "Font Awesome 5 Free";
+      //   font-weight: 900;
+      //   content: "\f069";
+      // }
+
+      &.col-lg-10:after {
+        right: 2rem;
+      }
+    }
+  }
+  .modal .form-group:not(.required) .field-wrap:after {
+    content: "";
+  }
+
+  .form-control {
+    height: $formHeight;
+    padding: .5rem;
+    font-size: 1rem;
+  }
+
+  //INPUT FIELD
+  &.field-input {
+//
+  }
+
+
+  //TEXT-AREA FIELD
+  &.field-textArea {
+    label {
+      height: initial;
+      min-height: 2rem;
+    }
+
+
+  }
+
+  //CHECKBOX FIELD
+  $bigSize: 20px;
+
+  &.field-checkbox {
+    margin-bottom: 0;
+    display: inline-flex;
+
+    &.big input {
+      font-size: $bigSize;
+
+      &:before {
+        height: $bigSize;
+        width: $bigSize;
+      }
+    }
+
+    label {
+      display: inline;
+      order: 2;
+    }
+
+    .field-wrap {
+      display: inline;
+      order: 1;
+    }
+
+    input {
+      position: relative;
+      float: left;
+      margin-top: 0.1em;
+      margin-right: 0.5rem;
+      color: $secondary;
+
+      &:before {
+        content: "";
+        font-size: 0.8rem;
+        position: absolute;
+        z-index: 1;
+        top: -1px;
+        left: -1px;
+        height: 16px;
+        width: 16px;
+        border-radius: 3px;
+        border: 3px solid $primary;
+        background-color: $white;
+        transition: 0.3s ease-out;
+      }
+
+      &:after {
+        position: absolute;
+        z-index: 5;
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f00c";
+        color: $white;
+        line-height: 1.2;
+        font-size: 1rem;
+        left: 0.05em;
+        top: 0;
+        transition: 0.2s ease-out;
+        transform: scale(0);
+      }
+
+      &:checked {
+        &:after {
+          transform: scale(.9);
+        }
+
+        &:before {
+          border-width: 0;
+          background-color: $primary;
+        }
+      }
+    }
+  }
+
+  &.field-switch-response-channel {
+    &>label {
+      display: none;
+    }
+  }
+
+  //Radio select
+  &.field-radio {
+    display: flex;
+    align-items: center;
+    label {
+      padding-bottom: 0;
+      display: inline;
+    }
+
+    input[type="radio"] {
+      margin-bottom: 0.5rem;
+      position: relative;
+      // opacity: 0;
+      &:after,
+      &:before{
+        content: "";
+        position: absolute;
+        width: 1.125rem;
+        height: 1.125rem;
+        top: 0;
+        left: -0.1rem;
+        border-radius: 2rem;
+        transition: transform 0.3s ease-in-out;
+      }
+      &:after {
+        background-color:$white;
+        transform: scale(.7);
+      }
+
+      &:before {
+        background-color:$primary;
+      }
+
+      &:checked{
+        &:after{
+          transform: scale(.4);
+        }
+      }
+    }
+
+    .form-check {
+      display: inline-flex;
+      align-items: center;
+      margin-right: 1.25rem;
+      padding-left: .75rem;
+      label{
+        min-height: initial;
+        margin: 0;
+      }
+      // margin-right: 1rem;
+    }
+  }
+
+  //Multi attribute select
+  &.field-vuex-select,
+  &.field-multi-attribute-select,
+  &.field-select-record-type,
+  &.field-select,
+  &.field-pikaday,
+  &.select{
+    .field-wrap {
+      position: relative;
+
+      .form-control {
+        cursor: pointer;
+        -webkit-appearance: none;
+        -moz-appearance: none;
+      }
+
+      &:after {
+        position: absolute;
+        pointer-events: none;
+        top: .5rem;
+        right: .75rem;
+        font-size: 1.5rem;
+        color: rgba($black, 0.5);
+        font-family: "Font Awesome 5 Free";
+        font-weight: 900;
+        content: "\f0dd";
+        border-color: $primary;
+      }
+    }
+  }
+}
+
+
+.checkbox-cloud legend {
+  margin-bottom: .75rem;
+}
+
+//Error
+.form-group {
+  // margin-bottom: 3rem; //margen para texto largo
+  padding-bottom: 1.5rem;
+
+  &.error {
+
+    .field-wrap input,
+    .field-wrap select {
+      border-color: $error;
+
+      &:focus {
+        box-shadow: 0 0 0 0.2rem rgba($error, 0.11);
+      }
+    }
+
+    .errors {
+      position: absolute;
+      padding-top: 0.25rem;
+      color: $error;
+      font-size: 0.8em;
+      line-height: 1.2;
+    }
+  }
+
+  &.field-autocomplete.error {
+    .errors {
+      top: 70%;
+    }
+  }
+}
+
+//field-favorite
+
+.field-favorite.form-group {
+  padding: 0;
+  margin: 0;
+}
+
+
+
+//FORCED STYLES
+.contentwrapper .v-select input[type=search],
+.contentwrapper .v-select input[type=search]:focus {
+  font-size: $font-size-base;
+  height: $formHeight * .9;
+}
+.contentwrapper .v-select .selected-tag {
+  font-size: $font-size-base;
+}
+
+.vue-form-generator .form-group:not(.field-checkbox) {
+  margin-bottom: 1rem;
+  line-height: 1.1em;
+}
+.vue-form-generator .form-group.error .field-wrap input,
+.vue-form-generator .form-group.error .field-wrap select {
+  border-color: $danger;
+}
+.vue-form-generator .form-group.error .field-wrap input:focus,
+.vue-form-generator .form-group.error .field-wrap select:focus {
+  box-shadow: 0 0 0 0.2rem rgba($dark, 0.11);
+}
+
+.vue-form-generator .form-group.error .errors,
+.vue-form-generator .form-group.error.field-checkbox label {
+  color: $danger;
+}
+.field-wrap select.form-control,
+.form-group select.form-control {
+  height: $formHeight;
+}
+
+// .geobcn {
+  .ui-widget-content {
+  height: 200px;
+  overflow: auto;
+  }
+  .frmInput{
+    position: relative;
+  }
+  .geobcn .ui-button,
+  .ui-button{
+    position: absolute !important;
+    // top: initial !important;
+    top: 0 !important;
+    bottom: 0.5rem;
+    right: -5px;
+  }
+// }
+.form-size {
+  height: $formHeight;
+}
+
+.contentwrapper .v-select input[type=search],
+.contentwrapper .v-select input[type=search]:focus {
+  margin: 0
+}
+
+  .dropdown-toggle {
+    .form-group {
+      padding: 0;
+      margin: 0;
+    }
+    &:after {
+      content: '';
+      border-top: 0.3em solid;
+      border-right: 0.3em solid transparent;
+      border-bottom: 0;
+      border-left: 0.3em solid transparent;
+    }
+  }
+select, .dropdown-toggle {
+  min-height: $formHeight;
+}
+
+
+.input-group{
+  height: $formHeight;
+  &-append,
+  .form-control{
+    height: 100%;
+    margin-left: 0;
+  }
+}
+
+.gaudi-body {
+  .geobcn .ngac {
+      top: auto !important;
+  }
+}

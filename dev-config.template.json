@@ -1,0 +1,18 @@
+{
+  "API_BASE_URL": "http://localhost:8000/services/iris/",
+  "CLIENT_ID_HEADER": "change_me",
+  "VERSION": "201903191911",
+  "ENV": "",
+  "ISSUE_COLLECTOR_URL": "",
+  "MEDIA_URL": "http://localhost:8000/",
+  "DEVELOP": true,
+  "MAINTENANCE": "",
+  "LOGOUT_URL": "change_me",
+  "SESSION_INFO_URL": "http://localhost:8000/services/iris/api/me/",
+  "FORCE_SESSION_POLLING": false,
+  "UTM_ZONE": 31,
+  "CITY_MAP": "Barcelona",
+  "LANGUAGES": ["ca", "es", "en"],
+  "CITY_CENTER": [41.3879, 2.16992],
+  "EXCLUDE_RECORD_TYPE_DEFAULT": 5
+}

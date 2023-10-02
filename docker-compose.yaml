@@ -1,0 +1,16 @@
+version: "2"
+
+services:
+
+  nginx:
+    image: iris_iris2-backoffice:build
+    build: .
+    ports:
+      - "8000:80"
+    environment:
+      API_BASE_URL: http://localhost:8000/services/iris/
+
+  tests:
+    build:
+        context: .
+        dockerfile: Dockerfile.test

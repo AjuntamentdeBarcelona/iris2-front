@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html {{ HTML_ATTRS }}>
+  <head>
+      <!--[if lt IE 10]>
+        <style>
+            body, body.bg-light {
+                background: #f77171!important;
+            }
+            .not-supported {
+                display: block !important;
+            }
+            #__nuxt {
+                display: none !important;
+            }
+        </style>
+    <![endif]-->
+    <style>
+        .not-supported {
+            font-size: 1.7rem;
+            width: 100%;
+            text-align: center;
+            height: 100%;
+            margin-top: 0px;
+            color: #343a40;
+            padding: 20px;
+        }
+        .not-supported h2 {
+            font-size: 2.5rem;
+            font-weight: bold;
+        }
+        .not-supported .fab {
+            font-size: 5rem;
+            font-weight: bold;
+            color: #e69b3c;
+        }
+        .not-supported .fas {
+            font-size: 8rem;
+        }
+        @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {  
+            /* Put your IE-only styles here. Works for IS 10 & IE 11*/
+            .not-supported {
+                display: block !important;
+            }
+            #__nuxt {
+                display: none !important;
+            }
+        }
+    </style>
+    {{ HEAD }}
+  </head>
+  <body {{ BODY_ATTRS }}>
+    <div class="not-supported" style="display: none">
+        <h2 class="fas fa-exclamation-triangle"></h2> 
+        <h2>Aquest navegador no és compatible amb IRIS2</h2> 
+        <p><strong>Si us plau, provi d'accedir amb Firefox</strong></p>
+        <h2 class="fab fa-firefox"></h2> 
+    </div>
+    {{ APP }}
+  </body>
+</html>
